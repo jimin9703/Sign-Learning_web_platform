@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="wrap1">
+    <h1> 학습페이지</h1>
+    <hr class="my-4">
+    </div>
+<div class="container" style="margin-bottom: 30px;">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-6">
+                <!--            img Label-->
+                <img style="width:90%; height:auto; margin-top: 10%;" src="../static/img/kr_sign.png">
+                <br><br><br>
+                <p id="topic" style=" width:100%; height: 10%; font-size: 200%; text-align: center;"> 지문자 </p>
+                <!--          ASL image-->
+                <!-- <div class="col-sm-6"> -->
+
+
+                <!-- </div> -->
+
+            </div>
+            <!--          webcam -->
+            <div class="col-sm-6">
+                <img style="margin-top: 10%; width:100%; height:60%" id="video" src="/video_feed">
+                <div id="predict" style="text-align: center; ">
+                    <br><br><br>
+                    <br>🤔 현재 predict label🤔<br>
+
+                </div>
+            </div>
+        </div>
+        <!--          경계선-->
+        <hr style="border: 0; height: 3px; background: #ccc;">
+
+
+<br><br>
+        <div class="row">
+            <div class="col-sm-4">
+
+            </div>
+
+            <div class="col-sm-4">
+                <a id="btn_next" class="btn btn-success btn-block p-6" href="main.html">이전</a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}

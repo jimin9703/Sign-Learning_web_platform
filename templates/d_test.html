@@ -1,0 +1,531 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="wrap1">
+    <h1> 시험페이지</h1>
+    <hr class="my-4">
+    </div>
+<div id="quiz_post">
+
+    <div class="container">
+        <form id="quizform" action="/quiz" method="post">
+
+
+                    <div id="0">
+
+
+                <!-- progress bar -->
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-11">
+                        <div class="progress ">
+
+                            <div class="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-1">1/10
+                    </div>
+                </div>
+
+                <!-- question -->
+                <div class="quiz " id="p" style="margin-top:60px; margin-bottom:50px; font-weight: 600; font-size:25px">지문자 "P" 를 고르시오.</div>                <input type="hidden" name="question0" value="p">
+
+                <!-- examples -->
+                <div class="d-flex justify-content-between ">
+
+                        <label>
+                            <input type="radio" name="answer0" value="g">
+                            <img class="eximg" src="../static/img/asl_g.png" alt="g">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer0" value="o">
+                            <img class="eximg" src="../static/img/asl_o.png" alt="o">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer0" value="d">
+                            <img class="eximg" src="../static/img/asl_d.png" alt="d">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer0" value="p">
+                            <img class="eximg" src="../static/img/asl_p.png" alt="p">
+                        </label>
+
+                </div>
+
+                <input type="radio" class="hiddenRadioButton" name="answer0" style="display:none;" value="-1" checked="">
+
+                </div>
+
+
+                    <div id="1" style="display:none;">
+
+
+                <!-- progress bar -->
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-11">
+                        <div class="progress ">
+
+                            <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-1">2/10
+                    </div>
+                </div>
+
+                <!-- question -->
+                <div class="quiz " id="k" style="margin-top:60px; margin-bottom:50px; font-weight: 600; font-size:25px">지문자 "K" 를 고르시오.</div>                <input type="hidden" name="question1" value="k">
+
+                <!-- examples -->
+                <div class="d-flex justify-content-between ">
+
+                        <label>
+                            <input type="radio" name="answer1" value="k">
+                            <img class="eximg" src="../static/img/asl_k.png" alt="k">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer1" value="j">
+                            <img class="eximg" src="../static/img/asl_j.png" alt="j">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer1" value="f">
+                            <img class="eximg" src="../static/img/asl_f.png" alt="f">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer1" value="u">
+                            <img class="eximg" src="../static/img/asl_u.png" alt="u">
+                        </label>
+
+                </div>
+
+                <input type="radio" class="hiddenRadioButton" name="answer1" style="display:none;" value="-1" checked="">
+
+                </div>
+
+
+                    <div id="2" style="display:none;">
+
+
+                <!-- progress bar -->
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-11">
+                        <div class="progress ">
+
+                            <div class="progress-bar" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-1">3/10
+                    </div>
+                </div>
+
+                <!-- question -->
+                <div class="quiz " id="x" style="margin-top:60px; margin-bottom:50px; font-weight: 600; font-size:25px">지문자 "X" 를 고르시오.</div>                <input type="hidden" name="question2" value="x">
+
+                <!-- examples -->
+                <div class="d-flex justify-content-between ">
+
+                        <label>
+                            <input type="radio" name="answer2" value="v">
+                            <img class="eximg" src="../static/img/asl_v.png" alt="v">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer2" value="t">
+                            <img class="eximg" src="../static/img/asl_t.png" alt="t">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer2" value="b">
+                            <img class="eximg" src="../static/img/asl_b.png" alt="b">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer2" value="x">
+                            <img class="eximg" src="../static/img/asl_x.png" alt="x">
+                        </label>
+
+                </div>
+
+                <input type="radio" class="hiddenRadioButton" name="answer2" style="display:none;" value="-1" checked="">
+
+                </div>
+
+
+                    <div id="3" style="display:none;">
+
+
+                <!-- progress bar -->
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-11">
+                        <div class="progress ">
+
+                            <div class="progress-bar" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-1">4/10
+                    </div>
+                </div>
+
+                <!-- question -->
+                <div class="quiz " id="a" style="margin-top:60px; margin-bottom:50px; font-weight: 600; font-size:25px">지문자 "A" 를 고르시오.</div>                <input type="hidden" name="question3" value="a">
+
+                <!-- examples -->
+                <div class="d-flex justify-content-between ">
+
+                        <label>
+                            <input type="radio" name="answer3" value="j">
+                            <img class="eximg" src="../static/img/asl_j.png" alt="j">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer3" value="d">
+                            <img class="eximg" src="../static/img/asl_d.png" alt="d">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer3" value="c">
+                            <img class="eximg" src="../static/img/asl_c.png" alt="c">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer3" value="a">
+                            <img class="eximg" src="../static/img/asl_a.png" alt="a">
+                        </label>
+
+                </div>
+
+                <input type="radio" class="hiddenRadioButton" name="answer3" style="display:none;" value="-1" checked="">
+
+                </div>
+
+
+                    <div id="4" style="display:none;">
+
+
+                <!-- progress bar -->
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-11">
+                        <div class="progress ">
+
+                            <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-1">5/10
+                    </div>
+                </div>
+
+                <!-- question -->
+                <div class="quiz " id="b" style="margin-top:60px; margin-bottom:50px; font-weight: 600; font-size:25px">지문자 "B" 를 고르시오.</div>                <input type="hidden" name="question4" value="b">
+
+                <!-- examples -->
+                <div class="d-flex justify-content-between ">
+
+                        <label>
+                            <input type="radio" name="answer4" value="x">
+                            <img class="eximg" src="../static/img/asl_x.png" alt="x">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer4" value="o">
+                            <img class="eximg" src="../static/img/asl_o.png" alt="o">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer4" value="e">
+                            <img class="eximg" src="../static/img/asl_e.png" alt="e">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer4" value="b">
+                            <img class="eximg" src="../static/img/asl_b.png" alt="b">
+                        </label>
+
+                </div>
+
+                <input type="radio" class="hiddenRadioButton" name="answer4" style="display:none;" value="-1" checked="">
+
+                </div>
+
+
+                    <div id="5" style="display:none;">
+
+
+                <!-- progress bar -->
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-11">
+                        <div class="progress ">
+
+                            <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-1">6/10
+                    </div>
+                </div>
+
+                <!-- question -->
+                <div class="quiz " id="r" style="margin-top:60px; margin-bottom:50px; font-weight: 600; font-size:25px">지문자 "R" 를 고르시오.</div>                <input type="hidden" name="question5" value="r">
+
+                <!-- examples -->
+                <div class="d-flex justify-content-between ">
+
+                        <label>
+                            <input type="radio" name="answer5" value="q">
+                            <img class="eximg" src="../static/img/asl_q.png" alt="q">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer5" value="r">
+                            <img class="eximg" src="../static/img/asl_r.png" alt="r">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer5" value="l">
+                            <img class="eximg" src="../static/img/asl_l.png" alt="l">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer5" value="j">
+                            <img class="eximg" src="../static/img/asl_j.png" alt="j">
+                        </label>
+
+                </div>
+
+                <input type="radio" class="hiddenRadioButton" name="answer5" style="display:none;" value="-1" checked="">
+
+                </div>
+
+
+                    <div id="6" style="display:none;">
+
+
+                <!-- progress bar -->
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-11">
+                        <div class="progress ">
+
+                            <div class="progress-bar" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-1">7/10
+                    </div>
+                </div>
+
+                <!-- question -->
+                <div class="quiz " id="m" style="margin-top:60px; margin-bottom:50px; font-weight: 600; font-size:25px">지문자 "M" 를 고르시오.</div>                <input type="hidden" name="question6" value="m">
+
+                <!-- examples -->
+                <div class="d-flex justify-content-between ">
+
+                        <label>
+                            <input type="radio" name="answer6" value="p">
+                            <img class="eximg" src="../static/img/asl_p.png" alt="p">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer6" value="m">
+                            <img class="eximg" src="../static/img/asl_m.png" alt="m">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer6" value="c">
+                            <img class="eximg" src="../static/img/asl_c.png" alt="c">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer6" value="f">
+                            <img class="eximg" src="../static/img/asl_f.png" alt="f">
+                        </label>
+
+                </div>
+
+                <input type="radio" class="hiddenRadioButton" name="answer6" style="display:none;" value="-1" checked="">
+
+                </div>
+
+
+                    <div id="7" style="display:none;">
+
+
+                <!-- progress bar -->
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-11">
+                        <div class="progress ">
+
+                            <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-1">8/10
+                    </div>
+                </div>
+
+                <!-- question -->
+                <div class="quiz " id="f" style="margin-top:60px; margin-bottom:50px; font-weight: 600; font-size:25px">지문자 "F" 를 고르시오.</div>                <input type="hidden" name="question7" value="f">
+
+                <!-- examples -->
+                <div class="d-flex justify-content-between ">
+
+                        <label>
+                            <input type="radio" name="answer7" value="f">
+                            <img class="eximg" src="../static/img/asl_f.png" alt="f">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer7" value="c">
+                            <img class="eximg" src="../static/img/asl_c.png" alt="c">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer7" value="w">
+                            <img class="eximg" src="../static/img/asl_w.png" alt="w">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer7" value="l">
+                            <img class="eximg" src="../static/img/asl_l.png" alt="l">
+                        </label>
+
+                </div>
+
+                <input type="radio" class="hiddenRadioButton" name="answer7" style="display:none;" value="-1" checked="">
+
+                </div>
+
+
+                    <div id="8" style="display:none;">
+
+
+                <!-- progress bar -->
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-11">
+                        <div class="progress ">
+
+                            <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-1">9/10
+                    </div>
+                </div>
+
+                <!-- question -->
+                <div class="quiz " id="c" style="margin-top:60px; margin-bottom:50px; font-weight: 600; font-size:25px">지문자 "C" 를 고르시오.</div>                <input type="hidden" name="question8" value="c">
+
+                <!-- examples -->
+                <div class="d-flex justify-content-between ">
+
+                        <label>
+                            <input type="radio" name="answer8" value="a">
+                            <img class="eximg" src="../static/img/asl_a.png" alt="a">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer8" value="q">
+                            <img class="eximg" src="../static/img/asl_q.png" alt="q">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer8" value="h">
+                            <img class="eximg" src="../static/img/asl_h.png" alt="h">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer8" value="c">
+                            <img class="eximg" src="../static/img/asl_c.png" alt="c">
+                        </label>
+
+                </div>
+
+                <input type="radio" class="hiddenRadioButton" name="answer8" style="display:none;" value="-1" checked="">
+
+                </div>
+
+
+                    <div id="9" style="display:none;">
+
+
+                <!-- progress bar -->
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-11">
+                        <div class="progress ">
+
+                            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-1">10/10
+                    </div>
+                </div>
+
+                <!-- question -->
+                <div class="quiz " id="s" style="margin-top:60px; margin-bottom:50px; font-weight: 600; font-size:25px">지문자 "S" 를 고르시오.</div>                <input type="hidden" name="question9" value="s">
+
+                <!-- examples -->
+                <div class="d-flex justify-content-between ">
+
+                        <label>
+                            <input type="radio" name="answer9" value="h">
+                            <img class="eximg" src="../static/img/asl_h.png" alt="h">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer9" value="s">
+                            <img class="eximg" src="../static/img/asl_s.png" alt="s">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer9" value="f">
+                            <img class="eximg" src="../static/img/asl_f.png" alt="f">
+                        </label>
+
+                        <label>
+                            <input type="radio" name="answer9" value="j">
+                            <img class="eximg" src="../static/img/asl_j.png" alt="j">
+                        </label>
+
+                </div>
+
+                <input type="radio" class="hiddenRadioButton" name="answer9" style="display:none;" value="-1" checked="">
+
+                </div>
+
+
+
+
+            <!-- buttons -->
+            <div class="row" style="margin-top: 100px;">
+                <div class="col d-flex justify-content-start">
+                    <div>
+                        <button type="button" class="btn btn-primary" id="before" style="display:none; ">←</button>
+                    </div>
+                </div>
+
+                <div class="col  d-flex justify-content-end">
+                    <div>
+                        <button class="btn btn-primary" id="submit" type="submit" style="display:none;">제출하기</button>
+                        <button type="button" class="btn btn-primary " id="next">→</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+
+<br><br>
+        <div class="row">
+            <div class="col-sm-4">
+
+            </div>
+
+            <div class="col-sm-4">
+                <a id="btn_next" class="btn btn-success btn-block p-6" href="main.html">이전</a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}
