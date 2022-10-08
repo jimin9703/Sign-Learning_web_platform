@@ -1,19 +1,20 @@
+import os
+import glob
 import errno
+import json
+import random
+import cv2
 from flask import Flask, url_for, render_template, Response, request, redirect, g, session
 from keras.utils.image_utils import img_to_array, load_img
 from keras.models import load_model
 import numpy as np
-import json
-import random
 from flask_babel import Babel, gettext
-import cv2
 import mediapipe as mp
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 from PIL import ImageFont, ImageDraw, Image
 from datetime import datetime
-import os
 
 app = Flask(__name__)
 babel = Babel()
@@ -22,7 +23,7 @@ babel.init_app(app)
 
 app.config['lang_code'] = ['en', 'ko']
 
-max_num_hands = 1
+max_num_hands = 2
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
 hands = mp_hands.Hands(
@@ -31,6 +32,9 @@ hands = mp_hands.Hands(
     min_tracking_confidence=0.5)
 
 model = load_model('model/handtrain(500(88.2)).h5')
+
+quiz_path = "C:\\Users\\dudwh\\signlanguage1\\Individual_img/*.jpg"
+jpg_list = [f for f in glob.glob(quiz_path)]
 
 # crop_img 엉키지 않게
 class Microsecond(object):
@@ -95,7 +99,7 @@ predict_label = PredictLabel('')
 
 @app.before_request
 def before_request():
-    g.total_q = 10
+    g.total_q = 5
 
 def get_k_list():
     k_list = [
@@ -192,138 +196,80 @@ def gen(camera):
             break
 
 
-def make_quiz():
-    question_list = {}
-    img_list = []
-    for i in range(g.total_q):
-        question, examples, img = make_random_quiz(question_list)
-        question_list[question] = examples
-        img_list.append(img)
-    return question_list, img_list
+def quiz(camera):
+    camera = cv2.VideoCapture(0)
 
+    while camera.isOpened():
+        ret, img = camera.read()
+        if not ret:
+            continue
+        width = camera.get(cv2.CAP_PROP_FRAME_WIDTH)
+        height = camera.get(cv2.CAP_PROP_FRAME_HEIGHT)
+        fourcc = cv2.VideoWriter_fourcc(*"XVID")
+        fps = 30
+        out = cv2.VideoWriter('video.avi', fourcc, fps, (int(width), int(height)))
 
-def make_random_quiz(question_list):
-    alphabet_list = get_k_list()
-    examples = []  # 보기
-    while True:
-        answer = alphabet_list[random.randint(0, len(alphabet_list) - 1)]
-        if is_valid_quiz(answer, question_list):
+        img = cv2.flip(img, 1)
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+        result = hands.process(img)
+
+        if result.multi_hand_landmarks is not None:
+            for res in result.multi_hand_landmarks:
+                joint = np.zeros((21, 3))
+                for j, lm in enumerate(res.landmark):
+                    joint[j] = [lm.x, lm.y, lm.z]
+
+                # Compute angles between joints
+                v1 = joint[[0, 1, 2, 3, 0, 5, 6, 7, 0, 9, 10, 11, 0, 13, 14, 15, 0, 17, 18, 19], :]  # Parent joint
+                v2 = joint[[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], :]  # Child joint
+                v = v2 - v1  # [20,3]
+                # Normalize v
+                v = v / np.linalg.norm(v, axis=1)[:, np.newaxis]
+
+                # Get angle using arcos of dot product
+                angle = np.arccos(np.einsum('nt,nt->n',
+                                            v[[0, 1, 2, 4, 5, 6, 8, 9, 10, 12, 13, 14, 16, 17, 18], :],
+                                            v[[1, 2, 3, 5, 6, 7, 9, 10, 11, 13, 14, 15, 17, 18, 19], :]))  # [15,]
+
+                angle = np.degrees(angle)  # Convert radian to degree
+
+                # Inference gesture
+                data = np.array([angle], dtype=np.float32)
+
+                result = model.predict([data]).squeeze()
+                idx = np.argmax(result)
+
+                img = Image.fromarray(img)
+
+                draw = ImageDraw.Draw(img)
+                font = ImageFont.truetype("fonts/gulim.ttc", 100)
+                org = (300, 50)
+                text = get_label(idx)
+                draw.text(org, text, font=font, fill=(0, 0, 0))
+                img = np.array(img)
+
+                for i in range(frame):
+                    frame_list = [] =150
+                    if(int(camera.get(1) / 30 ==1)):
+                        first_text = [i]
+                mp_drawing.draw_landmarks(img, res, mp_hands.HAND_CONNECTIONS)
+
+        ret, jpeg = cv2.imencode('.jpg', img)
+        frame = jpeg.tobytes()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+
+        out.write(img)
+        if cv2.waitKey(1) == ord('q'):
             break
-    examples.append(answer)
-    while len(examples) != 4:
-        randomIndex = random.randint(0, len(alphabet_list) - 1)
-        if alphabet_list[randomIndex] not in examples:
-            examples.append(alphabet_list[randomIndex])
-    random.shuffle(examples)
-    img = []
-    for i in examples:
-        img.append('../static/img/asl_' + i + ".png")
-
-    return answer, examples, img
 
 
-# 이전에 낸 문제인지 확인
-def is_valid_quiz(answer, question_list):
-    if answer in question_list:
-        return False
-    else:
-        return True
 
+# # 퀴즈 결과
+# @app.route('/quiz/result')
+# def result():
 
-# for ajax
-@app.route('/return_label', methods=['POST', 'GET'])
-def return_label():
-    value = request.form.get("target", False)
-    # 띄어쓰기 조심!@!
-    label_list = [
-    "ㄱ", "ㄴ", "ㄷ", "ㄹ", "ㅁ", "ㅂ", "ㅅ", "ㅇ",
-    "ㅈ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ", "ㅏ", "ㅐ",
-    "ㅑ", "ㅓ", "ㅔ", "ㅕ", "ㅗ", "ㅛ", "ㅜ", "ㅠ", "ㅡ", "ㅣ"
-]
-    tem = label_list.index(value)
-    print(tem)
-    idx = target_idx.set_idx(tem)
-    print(idx)
-    label = " " + predict_label.get_label() + " "
-
-    # ajax 에서 값 받아올때 공백이 앞뒤로 붙는데 python strip() 함수가 안먹어서...
-
-    if label == '':
-        predict_result = {
-            'status': 0,
-            'info': 'not detected',
-            'label': '',
-            'lang_code': session['language']
-        
-        }
-    elif label != value:
-        predict_result = {
-            'status': 0,
-            'info': gettext('predict_incorrect'),
-            'label': label,
-            'lang_code': session['language']
-
-        }
-        print("틀림!")
-    else:
-        predict_result = {
-            'status': 1,
-            'info': gettext('predict_correct'),
-            'label': label,
-            'lang_code': session['language']
-        }
-
-    # result 의 status 값이 1이면 참 -> main.js 에서 correct 값 증가
-
-    json_data = json.dumps(predict_result)  # json 형태로 바꿔줘야 에러 안남
-    return json_data
-
-
-# for ajax
-@app.route('/english')
-def english():
-    session['language'] = 'en'
-    link = request.args.get('link')
-    if link:
-        return redirect(link)
-    else:
-        return redirect('/')
-
-
-# for ajax
-@app.route('/korean')
-def korean():
-    session['language'] = 'ko'
-    link = request.args.get('link')
-    if link:
-        return redirect(link)
-    else:
-        return redirect('/')
-
-
-@app.route('/quiz', methods=['GET', 'POST'])
-def quiz():
-    if request.method == 'GET':
-        question_list, img_list = make_quiz()
-        return render_template('quiz.html', str=str, enumerate=enumerate, question_list=question_list,
-                               img_list=img_list, total_q=g.total_q, link=request.full_path)
-
-    if request.method == 'POST':
-        user_answers = {}
-        for i in range(g.total_q):
-            question = "question" + str(i)
-            answer = "answer" + str(i)
-            q = request.form[question]
-            a = request.form[answer]
-            user_answers[q] = a
-            print(user_answers)
-        user_answers = json.dumps(user_answers)
-
-        return redirect(url_for('.quiz_result', user_answers=user_answers))
-
-
-# 퀴즈 결과
-@app.route('/quiz/result')
 def quiz_result():
     try:
         user_answers = json.loads(request.args['user_answers'])
@@ -348,33 +294,42 @@ def quiz_result():
                            total_q=g.total_q, img_path=img_path, link=request.full_path)
 
 
-@app.route('/practice_asl')
-def practice_asl():
-    alphabet_list = get_k_list()
-    return render_template('practice_asl.html', alphabet_list=alphabet_list, link=request.full_path)
-
-
 # video streaming
 @app.route('/video_feed')
 def video_feed():
     camera = cv2.VideoCapture(0)
     return Response(gen(camera), mimetype='multipart/x-mixed-replace; boundary=frame')
 
+@app.route('/d_study')
+def d_study():
+    return render_template('d_study.html', link=request.full_path)
 
-@app.route('/practice', methods=['GET', 'POST'])
-def practice():
-    element = request.args.get('element')
-    alphabet = element.upper()
-    img = "../static/img/asl_" + element + ".png"
+@app.route('/d_test')
+def d_test():
+    return render_template('d_test.html', link=request.full_path)
 
-    next_topic, previous_topic = k_list_idx(element)
+@app.route('/index')
+def index():
+    return render_template('index.html', link=request.full_path)
 
-    return render_template('practice.html', img=img, alphabet=alphabet, previous_topic=previous_topic,
-                           next_topic=next_topic, link=request.full_path)
+@app.route('/j_study')
+def j_study():
+    return render_template('j_study.html', link=request.full_path)
 
+@app.route('/j_test')
+def j_test():
+    return render_template('j_test.html', link=request.full_path)
+
+@app.route('/programmer')
+def programmer():
+    return render_template('programmer.html', link=request.full_path)
+
+@app.route('/inquiry')
+def inquiry():
+    return render_template('inquiry.html', link=request.full_path)
 
 @app.route('/')
-def index():
+def main():
     return render_template('main.html', link=request.full_path)
 
 
