@@ -1,7 +1,7 @@
-{% extends 'layout.html' %}
+{% extends 'EN_layout.html' %}
 {% block content %}
 <div class="wrap1">
-    <h1> 학습페이지</h1>
+    <h1> Learning page</h1>
     <hr class="my-4">
     </div>
 <div class="container" style="margin-bottom: 30px;">
@@ -9,9 +9,9 @@
         <div class="row">
             <div class="col-sm-6">
                 <!--            img Label-->
-                <img style="width:90%; height:80%;; margin-top: 10%;" src="../static/img/kr_sign.png">
+                <img style="width:90%; height:80%;; margin-top: 10%;" src="../static/img/EN_sign.png">
                 <br><br><br>
-                <p id="topic" style=" width:100%; height: 10%; font-size: 200%; text-align: center;"> 지문자 </p>
+                <p id="topic3" style=" width:100%; height: 10%; font-size: 200%; text-align: center;"> Fingerprint </p>
                 <!--          ASL image-->
                 <!-- <div class="col-sm-6"> -->
 
@@ -21,10 +21,9 @@
             </div>
             <!--          webcam -->
             <div class="col-sm-6">
-                <img style="margin-top: 10%; width:90%; height:80%" id="video" src="/video_feed">
+                <img style="margin-top: 10%; width:90%; height:80%" id="evideo" src="/E_video_feed">
                 <br><br><br>
-                <p id="topic1" style=" width:100%; height: 10%; font-size: 200%; text-align: center;"> 실시간 학습확인 </p>
-
+                <p id="topic4" style=" width:100%; height: 10%; font-size: 200%; text-align: center;"> Real-time learning confirmation </p>
                 </div>
             </div>
         </div>
@@ -39,7 +38,7 @@
             </div>
 
             <div class="col-sm-4">
-                <a id="btn_next" class="btn btn-success btn-block p-6" href={{url_for('kr_main')}}>이전</a>
+                <a id="btn_next" class="btn btn-success btn-block p-6" href={{url_for('main')}}>이전</a>
             </div>
 
         </div>

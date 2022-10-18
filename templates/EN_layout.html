@@ -39,7 +39,7 @@
             background-color: #0a3d62;
             display: flex;
             justify-content: center;
-<!--            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);-->
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
         }
 
         .jumbotron {
@@ -112,7 +112,7 @@
 
         .navbar ul li a.content.active + .sub-menu {
             opacity: 1;
-<!--            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);-->
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
             transition: all 0.5s ease-in-out;
         }
 
@@ -132,10 +132,10 @@
         .textjung {
             margin-left: 20px
         }
+
         .textjung1 {
             margin-right: 280px
         }
-
     </style>
 
 
@@ -159,7 +159,7 @@
                     <a href="#" class="content">
                         <div class="wrap">
                         <span class="icon"><i class="fas fa-volleyball-ball"></i></span>
-                        <span class="text">언어</span>
+                        <span class="text">Language</span>
                         </div>
                     </a>
                     <div class="sub-menu">
@@ -188,7 +188,7 @@
                     <a href="#" class="content">
                         <div class="wrap">
                             <span class="icon"><i class="fas fa-volleyball-ball"></i></span>
-                            <span class="text">소개</span>
+                            <span class="text">Introduce</span>
                         </div>
                     </a>
                     <div class="sub-menu">
@@ -197,15 +197,17 @@
                                     <a href="{{ url_for('index') }}" class="sub-menu__content">
                                         <div class="wrap">
                                             <span class="icon"><i class="fas fa-home"></i></span>
-                                            <span class="text">프로젝트</span>
+                                            <span class="text">Project</span>
                                         </div>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ url_for('programmer') }}" class="sub-menu__content">
                                         <div class="wrap">
-                                            <span class="icon"><i class="fas fa-volleyball-ball"></i></span>
-                                            <span class="text">개발자</span>
+                          <span class="icon"
+                          ><i class="fas fa-volleyball-ball"></i
+                          ></span>
+                                            <span class="text">Developers</span>
                                         </div>
                                     </a>
                                 </li>
@@ -217,24 +219,26 @@
                     <a href="#" class="content">
                         <div class="wrap">
                             <span class="icon"><i class="fas fa-volleyball-ball"></i></span>
-                            <span class="text">학습</span>
+                            <span class="text">Learning</span>
                         </div>
                     </a>
                     <div class="sub-menu">
                         <ul>
                             <li>
-                                <a href="{{ url_for('j_study') }}" class="sub-menu__content">
+                                <a href="{{ url_for('Ej_study') }}" class="sub-menu__content">
                                     <div class="wrap">
                                         <span class="icon"><i class="fas fa-home"></i></span>
-                                        <span class="text">지문자</span>
+                                        <span class="text">Fingerspelling</span>
                                     </div>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url_for('d_study') }}" class="sub-menu__content">
+                                <a href="{{ url_for('Ed_study') }}" class="sub-menu__content">
                                     <div class="wrap">
-                                        <span class="icon"><i class="fas fa-volleyball-ball"></i></span>
-                                        <span class="text">단어</span>
+                          <span class="icon"
+                          ><i class="fas fa-volleyball-ball"></i
+                          ></span>
+                                        <span class="text">Word</span>
                                     </div>
                                 </a>
                             </li>
@@ -249,27 +253,27 @@
                     <a href="#" class="content">
                         <div class="wrap">
                             <span class="icon"><i class="fas fa-utensils"></i></span>
-                            <span class="text">시험</span>
+                            <span class="text">test</span>
                         </div>
                     </a>
                     <div class="sub-menu">
                         <ul>
 
                             <li>
-                                <a href="{{ url_for('j_test') }}" class="sub-menu__content">
+                                <a href="{{ url_for('Ej_test') }}" class="sub-menu__content">
                                     <div class="wrap">
                                         <span class="icon"><i class="fas fa-utensils"></i></span>
-                                        <span class="text">지문자</span>
+                                        <span class="text">Fingerspelling</span>
                                     </div>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url_for('d_test') }}" class="sub-menu__content">
+                                <a href="{{ url_for('Ed_test') }}" class="sub-menu__content">
                                     <div class="wrap">
                           <span class="icon"
                           ><i class="fas fa-paper-plane"></i
                           ></span>
-                                        <span class="text">단어</span>
+                                        <span class="text">Word</span>
                                     </div>
                                 </a>
                             </li>
@@ -280,7 +284,7 @@
                     <a href="{{ url_for('inquiry') }}" class="content">
                         <div class="wrap">
                             <span class="icon"><i class="fas fa-paper-plane"></i></span>
-                            <span class="text">문의사항</span>
+                            <span class="text">Enquiry</span>
                         </div>
                 </a>
             </li>
