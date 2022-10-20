@@ -76,7 +76,7 @@ color: #fff;
 letter-spacing: 0.2rem;
 text-transform: uppercase;
 width: 200px;
-height: 60px;
+height: 50px;
 text-align: center;
 padding: 20px;
 }
@@ -88,7 +88,6 @@ opacity: 0;
 .wrap {
 color: white;
 }
-
 .sub-menu {
 position: absolute;
 top: 60px;
@@ -150,10 +149,7 @@ margin-right: 420px
             <li>
                 <div class="textjung">
                     <a href="{{ url_for('main') }}" class="content">
-                        <div class="wrap">
-                        <span class="icon"><i class="fas fa-home"></i></span>
-                        <span class="text">로고</span>
-                        </div>
+                        <img src="static/img/Logo.png" alt="..." height="150" style="margin-top: -55px"/>
                     </a>
                 </div>
             <li>
@@ -191,7 +187,7 @@ margin-right: 420px
                 <a href="#" class="content">
                     <div class="wrap">
                     <span class="icon"><i class="fas fa-volleyball-ball"></i></span>
-                    <span class="text">소개</span>
+                    <span class="text" style="height: 50px;">소개/INTRO</span>
                     </div>
                 </a>
                     <div class="sub-menu">
@@ -200,7 +196,7 @@ margin-right: 420px
                             <a href="{{ url_for('index') }}" class="sub-menu__content">
                                 <div class="wrap">
                                 <span class="icon"><i class="fas fa-home"></i></span>
-                                <span class="text">프로젝트 소개</span>
+                                <span class="text">PROJECT</span>
                                 </div>
                             </a>
                         </li>
@@ -208,7 +204,7 @@ margin-right: 420px
                             <a href="{{ url_for('programmer') }}" class="sub-menu__content">
                                 <div class="wrap">
                                 <span class="icon"><i class="fas fa-volleyball-ball"></i></span>
-                                <span class="text">개발자 소개</span>
+                                <span class="text">Developers</span>
                                 </div>
                             </a>
                         </li>

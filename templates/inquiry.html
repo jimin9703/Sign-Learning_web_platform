@@ -1,60 +1,88 @@
 {% extends 'layout.html' %}
 {% block content %}
-<h2 class="content-head is-center">문의 & 건의</h2>
-<aside>
-    <p>
-        상명대학교<em>Coww</em>팀의 졸업프로젝트 Sign-language입니다.</p>
-    <p><b><em>건의사항</em>혹은<em>문의사항</em>이 있다면 아래 형식을 통해 작성해주세요!</b></p>
-    <p>해당 형식에 적은 사항은 메일을 통해 전달됩니다.
-    </p>
-</aside>
 
-<!-- START HERE -->
-<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<!-- Style The Contact Form How Ever You Prefer -->
-<link rel="stylesheet" href="style.css">
-
-<form class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net"
-      action="https://script.google.com/macros/s/AKfycbzfKB529YM1oOZOe6M_xPu_utkLM6zIQ5nUkBWQzpSUcDlj7mpovGVM8et7akZ07FwV3A/exec">
-    <!-- change the form action to your script url -->
-
-    <div class="form-elements">
-        <fieldset class="pure-group">
-            <label for="name">성함 혹은 조직: </label>
-            <input id="name" name="name" placeholder="성함 혹은 조직"/>
-        </fieldset>
-
-        <fieldset class="pure-group">
-            <label for="message">내용: </label>
-            <textarea id="message" name="message" rows="10"
-                      placeholder="건의사항과 문의사항을 적어주세요"></textarea>
-        </fieldset>
-
-        <fieldset class="pure-group">
-            <label for="email">회신받을 이메일:</label>
-            <input id="email" name="email" type="email" value=""
-                   required placeholder="your.name@email.com"/>
-        </fieldset>
-
-
-        <button class="button-success pure-button button-xlarge">
-            <i class="fa fa-paper-plane"></i>&nbsp;보내기
-        </button>
+<div class="wrap1">
+    <h1> <br> </h1>
+    <hr class="my-4">
     </div>
+<div class="container" style="margin-bottom: 30px;">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-6" style="margin-top: 10%; text-align: center; ">
+            <h2>문의 & 건의</h2>
+                <br>
+            <p>상명대학교<em>Coww</em>팀의 졸업프로젝트 Sign-language입니다.</p>
+            <p><b><em>건의사항</em></b> 혹은 <b><em>문의사항</em></b>이 있다면 형식에 맞춰 작성해주세요!</p>
+            <p>해당 형식에 적은 사항은 메일을 통해 전달됩니다.
+            </p>
+        </div>
+            <div class="col-sm-6" style="margin-top: 1%; text-align: center; ">
+    <!-- START HERE -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Style The Contact Form How Ever You Prefer -->
+    <link rel="stylesheet" href="style.css">
+
+    <form class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net"
+          action="https://script.google.com/macros/s/AKfycbzfKB529YM1oOZOe6M_xPu_utkLM6zIQ5nUkBWQzpSUcDlj7mpovGVM8et7akZ07FwV3A/exec">
+        <!-- change the form action to your script url -->
+
+        <div class="form-elements">
+            <fieldset class="pure-group">
+                <div style="display: inline-block">
+                    <label for="name">성함: </label>
+                </div>
+                <div style="display: inline-block">
+                    <input id="name" name="name"
+                           placeholder="성함 혹은 조직"/>
+                </div>
+            </fieldset>
+
+            <fieldset class="pure-group">
+                <div class="naeyoung">
+                    <label for="message">*내용</label>
+                </div>
+                <div style="display: inline-block">
+                <textarea id="message" name="message" rows="10" cols="50"
+                          placeholder="건의사항과 문의사항을 적어주세요"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="pure-group">
+                <div style="display: inline-block">
+                    <label for="email">회신받을 이메일:</label>
+                </div>
+                <div style="display: inline-block">
+                    <input id="email" name="email" type="email" value="" cols="12"
+                           required placeholder="your.name@email.com"/>
+                </div>
+            </fieldset>
+
+            <div class="middletopmargin">
+                <button class="button-success pure-button button-xlarge">
+                    <i class="fa fa-paper-plane"></i>&nbsp;보내기
+                </button>
+            </div>
+        </div>
 
 
-    <!-- Customise the Thankyou Message People See when they submit the form: -->
-    <div class="thankyou_message" style="display:none;">
-        <h2><em>Thanks</em> for contacting us!
-            We will get back to you soon!</h2>
-    </div>
+        <!-- Customise the Thankyou Message People See when they submit the form: -->
+        <div class="thankyou_message" style="display:none;">
+            <h2><em>Thanks</em> for contacting us!
+                We will get back to you soon!</h2>
+        </div>
 
-</form>
+    </form>
 
-<!-- Submit the Form to Google Using "AJAX" -->
-<script data-cfasync="false" src="form-submission-handler.js"></script>
-<!-- END -->
-<script data-cfasync="false" type="text/javascript" src="form-submission-handler.js"></script>
+    <!-- Submit the Form to Google Using "AJAX" -->
+    <script data-cfasync="false" src="form-submission-handler.js"></script>
+    <!-- END -->
+    <script data-cfasync="false" type="text/javascript" src="form-submission-handler.js"></script>
+
+            </div>
+        </div>
+   </div>
+</div>
+
 
 {% endblock %}
