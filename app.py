@@ -32,7 +32,7 @@ hands = mp_hands.Hands(
     min_detection_confidence=0.5,
     min_tracking_confidence=0.5)
 
-model = load_model('model/handtrain(500(88.2)).h5')
+model = load_model('model/handtrain(400(97.2)).h5')
 e_model = load_model('model/E_handtrain(400(91)).h5')
 quiz_path = "C:\\Users\\dudwh\\signlanguage1\\Individual_img/*.jpg"
 jpg_list = [f for f in glob.glob(quiz_path)]
@@ -173,9 +173,19 @@ def Egen(camera):
                 result = e_model.predict([data]).squeeze()
                 idx = np.argmax(result)
 
-                cv2.putText(img, text=get_Elabel(idx).upper(),
-                            org=(300,120),
-                            fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=3, color=(0, 0, 0), thickness=2)
+                img = Image.fromarray(img)
+
+                draw = ImageDraw.Draw(img)
+                font = ImageFont.truetype("fonts/gulim.ttc", 100)
+                org = (300, 50)
+                text = get_Elabel(idx)
+                draw.text(org, text, font=font, fill=(0, 0, 0), stroke_width=3, stroke_fill=(255, 255, 255))
+
+                img = np.array(img)
+
+                # cv2.putText(img, text=get_Elabel(idx).upper(),
+                #             org=(300,120),
+                #             fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=3, color=(0, 0, 0), thickness=3)
 
                 mp_drawing.draw_landmarks(img, res, mp_hands.HAND_CONNECTIONS)
         ret, jpeg = cv2.imencode('.jpg', img)
@@ -238,7 +248,8 @@ def gen(camera):
                 font = ImageFont.truetype("fonts/gulim.ttc", 100)
                 org = (300,50)
                 text = get_label(idx)
-                draw.text(org, text, font=font, fill=(0, 0, 0))
+                draw.text(org, text, font=font, fill=(0, 0, 0), stroke_width=3, stroke_fill=(255, 255, 255))
+
                 img = np.array(img)
 
                 mp_drawing.draw_landmarks(img, res, mp_hands.HAND_CONNECTIONS)
