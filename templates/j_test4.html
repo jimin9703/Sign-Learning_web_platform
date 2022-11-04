@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="wrap1">
+    <h1 id="top1" style="margin-left: 22%;">시험페이지</h1>
+    <a id="btn_next" style="margin-top: -50px; margin-left: 67%; width:190px; height:40px;" class="btn btn-outline-primary btn-block p-8" href="j_test5">다음 문제</a>
+    <hr class="my-1">
+    </div>
+<div id="quiz_post">
+
+    <div class="container">
+        <form id="quizform" action="/quiz" method="post">
+
+
+                    <div id="0">
+
+
+                <!-- progress bar -->
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-11">
+                        <div class="progress" style="margin-left: 3%;">
+                            <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-1">4/5
+                    </div>
+                </div>
+
+                <!-- question -->
+                <div class="quiz " id="key" style="margin-top:60px; margin-bottom:50px; font-weight: 600; font-size:18px; text-align: center;"> 시험은 랜덤으로 발생하는 자음, 모음에 해당하는 손동작을 맞추는 문제입니다. <br> 카메라가 손을 인식하고 10초간 유지해 주세요. <br><br><br> 정답 유무를 확인 후 다음 문제로 넘어가세요.</div>
+            </div>
+        </form>
+    </div>
+
+</div>
+<div class="container" style="margin-bottom: 30px;">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-6">
+                <br><br><br>
+                 <div class="border border-dark" id="prob" style="margin-top:-19%; width:90%; height: 90%; font-size: 800%; text-align: center; line-height:200% ">{{k_list[3]}}</div>
+
+                <!--          ASL image-->
+                <!-- <div class="col-sm-6"> -->
+
+
+                <!-- </div> -->
+
+            </div>
+            <!--          webcam -->
+            <div class="col-sm-6">
+                <img style="margin-top: -5%; width:90%; height:90%" id="video" src="/jquiz4">
+
+<!--                {% for i in range (0,100) %}-->
+<!--                {% if k_list[0] == pr: %}-->
+<!--                <div id="dan2" style="text-align: center; "> <br>{{pr_index}}<br> </div>-->
+<!--                <div id="dana" style="text-align: center; "> <br>정답!<br> </div>-->
+<!--                {% else %}-->
+<!--                    <h1> </h1>-->
+<!--                {% endif %}-->
+<!--                {% endfor %}-->
+
+                <!--                {% for i in range(5) %}-->
+<!--                {% if k_list[0] == pr_index: %}-->
+<!--                <div id="dana" style="text-align: center; "> <br>정답!<br> </div>-->
+<!--                {% endif %}-->
+<!--                {% endfor %}-->
+<!--                <div id="dana1" style="text-align: center; "> <br>실패!<br> </div>-->
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

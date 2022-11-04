@@ -135,7 +135,9 @@
         .textjung1 {
             margin-right: 280px
         }
-
+        .btn_next {
+            background-color: #E0C211;
+        }
     </style>
 
 
@@ -211,67 +213,24 @@
                 </li>
                 <!--학습밑애들임 -->
                 <li>
-                    <a href="#" class="content">
+                    <a href="{{ url_for('j_study') }}" class="content">
                         <div class="wrap">
                             <span class="icon"><i class="fas fa-volleyball-ball"></i></span>
-                            <span class="text">학습</span>
+                            <span class="text">지문자 학습</span>
                         </div>
                     </a>
-                    <div class="sub-menu">
-                        <ul>
-                            <li>
-                                <a href="{{ url_for('j_study') }}" class="sub-menu__content">
-                                    <div class="wrap">
-                                        <span class="icon"><i class="fas fa-home"></i></span>
-                                        <span class="text">지문자</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url_for('d_study') }}" class="sub-menu__content">
-                                    <div class="wrap">
-                                        <span class="icon"><i class="fas fa-volleyball-ball"></i></span>
-                                        <span class="text">단어</span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
 
 
                 <!----시험밑 애들임-->
 
                 <li>
-                    <a href="#" class="content">
+                    <a href="{{ url_for('j_test') }}" class="content">
                         <div class="wrap">
                             <span class="icon"><i class="fas fa-utensils"></i></span>
-                            <span class="text">시험</span>
+                            <span class="text">지문자 시험</span>
                         </div>
                     </a>
-                    <div class="sub-menu">
-                        <ul>
-
-                            <li>
-                                <a href="{{ url_for('j_test') }}" class="sub-menu__content">
-                                    <div class="wrap">
-                                        <span class="icon"><i class="fas fa-utensils"></i></span>
-                                        <span class="text">지문자</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url_for('d_test') }}" class="sub-menu__content">
-                                    <div class="wrap">
-                          <span class="icon"
-                          ><i class="fas fa-paper-plane"></i
-                          ></span>
-                                        <span class="text">단어</span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
                 <li>
                     <a href="{{ url_for('inquiry') }}" class="content">

@@ -1,0 +1,45 @@
+{% extends 'EN_layout.html' %}
+{% block content %}
+<div class="wrap1">
+    <h1 id="top1" style="margin-left: 22%;">test page</h1>
+    <a id="btn_next" style="margin-top: -50px; margin-left: 67%; width:190px; height:40px;" class="btn btn-outline-primary btn-block p-8" href="Eresult">check the grade</a>
+    <hr class="my-1">
+    </div>
+<div id="quiz_post">
+
+    <div class="container">
+        <form id="quizform" action="/quiz" method="post">
+                <!-- progress bar -->
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col-11">
+                        <div class="progress" style="margin-left: 3%;">
+                            <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div class="col-1">5/5
+                    </div>
+                </div>
+
+                <!-- question -->
+                <div class="quiz " id="key" style="margin-top:60px; margin-bottom:50px; font-weight: 600; font-size:18px; text-align: center;"> This quiz is about guessing the hand gestures corresponding to randomly occurring alphabets.. <br> Let the camera recognize your hand and hold it for 10 seconds.. <br><br><br> After checking the correct answer, proceed to the next question.</div>
+        </form>
+    </div>
+
+</div>
+<div class="container" style="margin-bottom: 30px;">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-6">
+                <br><br><br>
+                 <div class="border border-dark" id="prob" style="margin-top:-19%; width:90%; height: 90%; font-size: 800%; text-align: center; line-height:200% ">{{alp_list[4]}}</div>
+
+            </div>
+            <!--          webcam -->
+            <div class="col-sm-6">
+                <img style="margin-top: -5%; width:90%; height:90%" id="video" src="/Ejquiz5">
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

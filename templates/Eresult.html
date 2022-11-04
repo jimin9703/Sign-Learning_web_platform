@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="wrap1">
+    <h1 id="top1" style="margin-left: 33%;">Test result</h1>
+    <a id="btn_next" style="margin-top: -50px; margin-left: 67%; width:190px; height:40px;" class="btn btn-outline-primary btn-block p-8" href="EN_main">return to main page</a>
+    <hr class="my-1">
+    </div>
+<div class="container " style=" text-align: center;">
+    <div>
+        <img style="margin-top:20px; width: 650px; height: 500px" src="{{img_path}}" alt="img">
+    </div>
+
+    <div style="font-weight: 500; font-size:40px;">
+        number of correct answer: {{Ei}} / 5
+    </div>
+    <div style="font-weight: 500; font-size:40px;">
+        wrong fingerprint: {{Etry_problem}}
+    </div>
+    <br>
+    <div class="col-sm-4">
+                <a id="study" style="margin-left:112%" class="btn btn-outline-warning btn-block p-6" href="Ej_study">Go th the practice</a>
+    </div>
+</div>
+{% endblock %}

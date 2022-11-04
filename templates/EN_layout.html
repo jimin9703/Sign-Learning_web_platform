@@ -1,0 +1,281 @@
+<!Doctype html>
+<html lang="ko,en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+
+    <!-- 구글폰트 -->
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+
+    <!-- GET http://0.0.0.0:5000/favicon.ico 404 (NOT FOUND) 에러 해결 코드 -->
+    <link rel="shortcut icon" href="#">
+
+    <title>졸프 | sign-learning</title>
+
+    <!-- style -->
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        .wrapper {
+            width: 100%;
+            background-color: #0a3d62;
+            display: flex;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+
+        .jumbotron {
+            background-color: white;
+        }
+
+        .jumbotron2 {
+            background-size: cover;
+            background-color: cover;
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+
+        .navbar {
+            width: 80%;
+        }
+
+        .navbar > ul {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 60px;
+        }
+
+        .navbar ul li {
+            position: relative;
+        }
+
+        .navbar ul li a {
+            display: block;
+            color: #fff;
+            letter-spacing: 0.2rem;
+            text-transform: uppercase;
+            width: 200px;
+            height: 60px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .navbar .sub-menu {
+            opacity: 0;
+        }
+
+        .wrap {
+            color: white;
+        }
+
+        .sub-menu {
+            position: absolute;
+            top: 60px;
+            left: 0px;
+            width: 80px;
+        }
+
+        .sub-menu__content {
+            background-color: #0a3d62;
+        }
+
+        .active {
+            font-size: 18px;
+            transition: all 0.5s ease-in-out;
+        }
+
+        .navbar ul li a:hover,
+        .navbar ul li a:active,
+        .navbar .sub-menu ul li a:hover,
+        .navbar .sub-menu ul li a:active {
+            background-color: #1e3799;
+        }
+
+        .navbar ul li a.content.active + .sub-menu {
+            opacity: 1;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .jung {
+            margin: 0 auto
+        }
+
+        .boxjung {
+            margin: 20px
+        }
+
+        .jung22 {
+            margin-left: 125px;
+            margin-top: 60px
+        }
+
+        .textjung {
+            margin-left: 20px
+        }
+
+        .textjung1 {
+            margin-right: 280px
+        }
+    </style>
+
+
+</head>
+<body>
+
+<div class="wrapper">
+        <div class="navbar">
+            <ul>
+            <li>
+                <div class="textjung">
+                    <a href="{{ url_for('main') }}" class="content">
+                        <img src="static/img/Logo.png" alt="..." height="150" style="margin-top: -55px"/>
+                    </a>
+                </div>
+            <li>
+                <div class="textjung1">
+                    <a href="#" class="content">
+                        <div class="wrap">
+                        <span class="icon"><i class="fas fa-volleyball-ball"></i></span>
+                        <span class="text">Language</span>
+                        </div>
+                    </a>
+                    <div class="sub-menu">
+                <ul>
+            <li>
+                <a href="{{ url_for('kr_main') }}" class="sub-menu__content">
+                    <div class="wrap">
+                    <span class="icon"><i class="fas fa-home"></i></span>
+                    <span class="text">한국어/Korean</span>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="{{ url_for('EN_main') }}" class="sub-menu__content">
+                    <div class="wrap">
+                    <span class="icon"><i class="fas fa-volleyball-ball"></i></span>
+                    <span class="text">영어/English</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+    <!--            소개 밑에 애들-->
+                <li>
+                    <a href="#" class="content">
+                        <div class="wrap">
+                            <span class="icon"><i class="fas fa-volleyball-ball"></i></span>
+                            <span class="text">Introduce</span>
+                        </div>
+                    </a>
+                    <div class="sub-menu">
+                            <ul>introduce
+                                <li>
+                                    <a href="{{ url_for('index') }}" class="sub-menu__content">
+                                        <div class="wrap">
+                                            <span class="icon"><i class="fas fa-home"></i></span>
+                                            <span class="text">Project</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ url_for('programmer') }}" class="sub-menu__content">
+                                        <div class="wrap">
+                          <span class="icon"
+                          ><i class="fas fa-volleyball-ball"></i
+                          ></span>
+                                            <span class="text">Developers</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                </li>
+                <!--학습밑애들임 -->
+                <li>
+                    <a href="{{ url_for('Ej_study') }}" class="content">
+                        <div class="wrap">
+                            <span class="icon"><i class="fas fa-volleyball-ball"></i></span>
+                            <span class="text">Learning</span>
+                        </div>
+                    </a>
+                </li>
+
+
+                <!----시험밑 애들임-->
+
+                <li>
+                    <a href="{{ url_for('Ej_test') }}" class="content">
+                        <div class="wrap">
+                            <span class="icon"><i class="fas fa-utensils"></i></span>
+                            <span class="text">test</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ url_for('inquiry') }}" class="content">
+                        <div class="wrap">
+                            <span class="icon"><i class="fas fa-paper-plane"></i></span>
+                            <span class="text">Enquiry</span>
+                        </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% block content %}
+{% endblock %}
+</body>
+<script>
+    const content = document.querySelectorAll('.content');
+    const subContent = document.querySelectorAll('.sub-menu__content')
+    const ACTIVE = "active"
+
+
+    content.forEach(function (contents) {
+        contents.addEventListener("click", function () {
+
+            subContent.forEach(function (subContents) {
+                subContents.classList.remove(ACTIVE);
+            })
+            content.forEach(function (contents) {
+                contents.classList.remove(ACTIVE);
+            });
+            contents.classList.add(ACTIVE);
+        })
+        contents.classList.remove(ACTIVE);
+    })
+
+    subContent.forEach(function (subContents) {
+        subContents.addEventListener("click", function () {
+            subContent.forEach(function (subContents) {
+                subContents.classList.remove(ACTIVE);
+            })
+            subContents.classList.add(ACTIVE);
+        })
+    })
+
+
+</script>
+</html>

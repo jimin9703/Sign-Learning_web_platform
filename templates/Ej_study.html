@@ -1,17 +1,18 @@
 {% extends 'EN_layout.html' %}
 {% block content %}
 <div class="wrap1">
-    <h1> Learning page</h1>
-    <hr class="my-4">
+    <h1 id="top" style="margin-left: 23%;"> Learning page</h1>
+    <a id="btn_next1" style="margin-top: -50px; margin-left: 63%; width:220px; height:40px;" class="btn btn-outline-primary btn-block p-8" href={{url_for('kr_main')}}>return to the previous page</a>
+    <hr class="my-1">
     </div>
-<div class="container" style="margin-bottom: 30px;">
+<div class="container" style="margin-bottom: 0%;">
     <div class="jumbotron">
         <div class="row">
             <div class="col-sm-6">
                 <!--            img Label-->
-                <img style="width:90%; height:80%;; margin-top: 10%;" src="../static/img/EN_sign.png">
+                <img style="width:85%; height:80%;; margin-top: 10%;" src="../static/img/EN_sign.png">
                 <br><br><br>
-                <p id="topic3" style=" width:100%; height: 10%; font-size: 200%; text-align: center;"> Fingerprint </p>
+                <p id="topic3" style=" width:94%; height: 10%; font-size: 200%; text-align: center;"> Fingerprint </p>
                 <!--          ASL image-->
                 <!-- <div class="col-sm-6"> -->
 
@@ -23,26 +24,16 @@
             <div class="col-sm-6">
                 <img style="margin-top: 10%; width:90%; height:80%" id="evideo" src="/E_video_feed">
                 <br><br><br>
-                <p id="topic4" style=" width:100%; height: 10%; font-size: 200%; text-align: center;"> Real-time learning confirmation </p>
+                <p id="topic4" style=" width:94%; height: 10%; font-size: 200%; text-align: center;"> learning confirmation </p>
                 </div>
             </div>
         </div>
         <!--          경계선-->
         <hr style="border: 0; height: 3px; background: #ccc;">
-
-
-<br><br>
+ <hr style="margin-top: -6%; border: 0; height: 3px; background: #ccc;">
         <div class="row">
             <div class="col-sm-4">
-
-            </div>
-
-            <div class="col-sm-4">
-                <a id="btn_next" class="btn btn-success btn-block p-6" href={{url_for('main')}}>이전</a>
-            </div>
-
         </div>
-
     </div>
 </div>
 {% endblock %}

@@ -1,16 +1,17 @@
 {% extends 'layout.html' %}
 {% block content %}
 <div class="wrap1">
-    <h1> 학습페이지</h1>
-    <hr class="my-4">
+    <h1 id="top" style="margin-left: 23%;"> 학습페이지</h1>
+    <a id="btn_next" style="margin-top: -50px; margin-left: 65%; width:190px; height:40px;" class="btn btn-outline-primary btn-block p-8" href={{url_for('kr_main')}}>이전 페이지</a>
+    <hr class="my-1">
     </div>
-<div class="container" style="margin-bottom: 30px;">
+<div class="container" style="margin-top: 0%;">
     <div class="jumbotron">
         <div class="row">
             <div class="col-sm-6">
                 <!--            img Label-->
-                <img style="width:90%; height:80%;; margin-top: 10%;" src="../static/img/kr_sign.png">
-                <br><br><br>
+                <img style="width:85%; height:80%;; margin-top: 10%;" src="../static/img/kr_jimunja.png">
+                <br><br>
                 <p id="topic" style=" width:100%; height: 10%; font-size: 200%; text-align: center;"> 지문자 </p>
                 <!--          ASL image-->
                 <!-- <div class="col-sm-6"> -->
@@ -22,28 +23,17 @@
             <!--          webcam -->
             <div class="col-sm-6">
                 <img style="margin-top: 10%; width:90%; height:80%" id="video" src="/video_feed">
-                <br><br><br>
+                <br><br>
                 <p id="topic1" style=" width:100%; height: 10%; font-size: 200%; text-align: center;"> 실시간 학습확인 </p>
 
                 </div>
             </div>
         </div>
         <!--          경계선-->
-        <hr style="border: 0; height: 3px; background: #ccc;">
-
-
-<br><br>
+        <hr style="margin-top: -6%; border: 0; height: 3px; background: #ccc;">
         <div class="row">
             <div class="col-sm-4">
-
-            </div>
-
-            <div class="col-sm-4">
-                <a id="btn_next" class="btn btn-success btn-block p-6" href={{url_for('kr_main')}}>이전</a>
-            </div>
-
         </div>
-
     </div>
 </div>
 {% endblock %}
