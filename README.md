@@ -1,8 +1,8 @@
 # 졸업프로젝트 Sing Learning (2022년 2학기) 
 
-## 주제💻 딥러닝 기술을 활용한 수어교육 웹 플랫폼 개발_(한,영_지문자ver)
+## 주제💻 
 
-### 대표기술영상
+### 딥러닝 기술을 활용한 수어교육 웹 플랫폼 개발_(한,영_지문자ver)
 
 <p align="center"><img src="https://user-images.githubusercontent.com/74172467/207249922-1b1d9703-8481-497a-9d17-de6e589ddf6d.gif " width= "700">
 
