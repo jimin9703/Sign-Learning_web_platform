@@ -2,7 +2,7 @@
 
 ## 주제💻 딥러닝 기술을 활용한 수어교육 웹 플랫폼 개발_(한,영_지문자ver)
 
-### 웹 플랫폼 구연 영상: 지문자 퀴즈풀이
+### 웹 플랫폼 구현 영상: 지문자 퀴즈풀이
 
 <p align="center"><img src="https://user-images.githubusercontent.com/74172467/207249922-1b1d9703-8481-497a-9d17-de6e589ddf6d.gif " width= "700">
 
