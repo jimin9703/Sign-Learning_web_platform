@@ -72,7 +72,5 @@ DNN Architeture|Loss rating & ACC score| Dropout & batch normalization
 
 
 
-# ✏  팀원 소개  
 
-<img src = "https://user-images.githubusercontent.com/74172467/205812636-189e4dec-756c-43ab-8e09-80720816cda9.png" width= "300">
 
